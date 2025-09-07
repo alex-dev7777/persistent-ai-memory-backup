@@ -2,11 +2,14 @@
 set -euo pipefail
 
 PROJECT_DIR="$HOME/projects/persistent-ai-memory"
-DB_FILE="ai_memories.db"
+DB_FILE="memory_data/ai_memories.db"
 DUMP_FILE="backup.sql"
 LOG_FILE="$PROJECT_DIR/backup.log"
 
 cd "$PROJECT_DIR"
+
+# Переключаемся на ветку бэкапов
+git checkout backup
 
 echo "[$(date -Is)] Starting backup..." | tee -a "$LOG_FILE"
 
